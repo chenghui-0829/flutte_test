@@ -1,4 +1,5 @@
 import 'package:flutte_test/app_strings.dart';
+import 'package:flutte_test/locale_util.dart';
 import 'package:flutte_test/translations.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,14 @@ class TestPage7 extends StatefulWidget {
 }
 
 class _TestPage7State extends State<TestPage7> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    print("-----" + LocaleUtil().getLanguageCode());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
