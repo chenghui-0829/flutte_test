@@ -4,6 +4,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+import 'locale_util.dart';
+
 class Translations {
   Translations(Locale locale) {
     this.locale = locale;
@@ -54,7 +56,10 @@ class TranslationsDelegate extends LocalizationsDelegate<Translations> {
   const TranslationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['en', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) {
+    localeUtil.languageCode = locale.languageCode;
+    return localeUtil.supportedLanguages.contains(locale.languageCode);
+  }
 
   @override
   Future<Translations> load(Locale locale) => Translations.load(locale);
